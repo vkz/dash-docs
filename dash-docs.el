@@ -534,9 +534,9 @@ Either a file:/// URL joining DOCSET-NAME, FILENAME & ANCHOR with sanitization
 (defun dash-docs-browse-url (search-result)
   "Call to `browse-url' with the result returned by `dash-docs-result-url'.
 Get required params to call `dash-docs-result-url' from SEARCH-RESULT."
-  (let ((docset-name (car search-result))
-        (filename (nth 2 (cadr search-result)))
-        (anchor (nth 3 (cadr search-result))))
+  (let ((docset-name (cadr search-result))
+        (filename (nth 2 (caddr search-result)))
+        (anchor (nth 3 (caddr search-result))))
     (funcall dash-docs-browser-func (dash-docs-result-url docset-name filename anchor))))
 
 (defun dash-docs-add-to-kill-ring (search-result)
